@@ -87,6 +87,8 @@
         </div>
       </div>
     </header>
+
+    <!-- MAIN SECTION -->
     <div class="container">
       <hr />
       <div id="app" v-cloak>
@@ -118,18 +120,32 @@
               <div class="card-body">
                 <fieldset class="form-group">
                   <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="inputStrict" style="margin-right: 10px;"
+                      >Resmi Sabitle</label
+                    >
                     <input
+                    style="padding: 10px;"
                       type="checkbox"
                       name="strict"
                       class="form-check-input"
                       id="inputStrict"
                       v-model="options.strict"
                     />
-                    <label class="form-check-label" for="inputStrict"
-                      >kesin</label
-                    >
                   </div>
                 </fieldset>
+              <fieldset class="form-group">
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="inputCheckOrientation" style="margin-right: 10px;">
+                    Resmin Konumunu Kontrol Et</label>
+                  <input 
+                    type="checkbox" 
+                    name="checkOrientation" 
+                    class="form-check-input" 
+                    id="inputCheckOrientation" 
+                    v-model="options.checkOrientation"
+                    />
+                </div>
+              </fieldset>
                 <div class="form-group row">
                   <label for="inputMaxWidth" class="col-5 col-form-label"
                     >maxGenişlik</label
@@ -140,7 +156,7 @@
                       name="maxWidth"
                       class="form-control"
                       id="inputMaxWidth"
-                      placeholder="Infinity"
+                      placeholder="Sonsuz"
                       v-model.number="options.maxWidth"
                     />
                   </div>
@@ -155,7 +171,7 @@
                       name="maxHeight"
                       class="form-control"
                       id="inputMaxHeight"
-                      placeholder="Infinity"
+                      placeholder="Sonsuz"
                       v-model.number="options.maxHeight"
                     />
                   </div>
@@ -285,7 +301,7 @@
                 class="card-header d-flex align-items-center justify-content-between"
               >
                 <span
-                  >Resim Çıktısı
+                  >GİRDİ RESMİ
                   <small class="text-secondary">(original resim)</small></span
                 >
                 <a
@@ -328,7 +344,7 @@
                 class="card-header d-flex align-items-center justify-content-between"
               >
                 <span
-                  >Output image
+                  >ÇIKTI RESMİ
                   <small class="text-secondary"
                     >(sıkıştırılmış resim)</small
                   ></span
@@ -376,6 +392,7 @@
             </div>
           </div>
         </div>
+        <!-- vue compressor -->
         <div class="card" v-if="inputURL && outputURL">
           <h4 class="card-header">Karşılaştırma</h4>
           <div class="card-body">
@@ -389,10 +406,11 @@
               right-label="Çıkış Resmi"
             ></vue-compare-image>
           </div>
-        </div>
+      </div>
       </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
         <p class="heart"></p>
@@ -413,7 +431,6 @@
     </footer>
 
     <!-- GEREKLI PAKETLER -->
-
     <script
       src="https://unpkg.com/jquery@3/dist/jquery.slim.min.js"
       crossorigin="anonymous"
